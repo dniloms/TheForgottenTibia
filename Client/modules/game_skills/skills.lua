@@ -250,6 +250,12 @@ function init()
 	})
 end
 
+function openw() -- new (fuction to add in addevent)
+	if g_game.isOnline() then
+	skillsWindow:open()
+	end
+end
+
 function terminate()
 
 	disconnect(LocalPlayer, {
@@ -1548,6 +1554,9 @@ function onSkillPointsChange(localPlayer, skillPoints)
 	intelligenceMinusButton:setVisible(false)
 	faithMinusButton:setVisible(false)
 	enduranceMinusButton:setVisible(false)
+	
+  skillsWindow:close() -- new 
+  addEvent( openw, 1000) -- new (renew the skillwindow when player get skill points)
 end
 
 function onFreeCapacityChange(localPlayer, freeCapacity)
